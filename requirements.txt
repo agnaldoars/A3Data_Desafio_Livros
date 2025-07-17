@@ -1,0 +1,12 @@
+pandas
+numpy
+matplotlib
+seaborn
+nltk
+textblob
+wordcloud
+sentence-transformers
+faiss-cpu
+torch
+transformers
+scikit-learn
