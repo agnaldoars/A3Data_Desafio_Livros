@@ -1,5 +1,3 @@
-# 2_QA_Sumarizacao.py
-
 # ================================
 # 1. Importações
 # ================================
@@ -15,12 +13,13 @@ import torch
 # ================================
 # 2. Carregar dados processados
 # ================================
-df = pd.read_csv("avaliacoes_processadas.csv")
+df = pd.read_csv("avaliacoes_processadas2.csv")
 df4 = df.copy()
 df = df.dropna(
     subset=["review_clean"]
 )  # removendo todas as linhas do DataFrame df onde a coluna "review_clean" tem valor NaN (nulo ou ausente).
 df = df[:100]
+df.shape
 df.to_csv("Slice.csv", index=False)
 # df = df4.copy()
 # ================================
@@ -62,7 +61,7 @@ print("🔍 Exemplo de busca:")
 # What is the general feedback on books in the Religion category?
 # How do Fiction reviews differ from Religion reviews?
 # What makes a review positive or negative?
-print(buscar_reviews("How about hyacinth?"))
+print(buscar_reviews("What are common themes in the Biography?"))
 
 # ================================
 # 6. Sumarização com LLM
@@ -94,3 +93,8 @@ resultados = buscar_reviews(
 
 resumo = resumir_reviews(resultados)
 print("\n🧠 Resumo com LLM:\n", resumo)
+# 🧠 Resumo com LLM:
+# "Dr. Seuss: American Icon" by Philip Nel is a thoughtful deconstruction
+# of the life and work of Theodore Geisel. In this thoughtful book, Mr.
+# Nel deepens our appreciation for Seuss as a distinctively American poet,
+# artist and educator.
